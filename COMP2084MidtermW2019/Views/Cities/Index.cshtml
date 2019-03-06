@@ -46,7 +46,12 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CityId }) |
             @Html.ActionLink("Details", "Details", new { id=item.CityId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CityId })
+            
+            @if (User.Identity.IsAuthenticated)
+            {
+            @Html.ActionLink("Delete", "Delete", new { id = item.CityId })
+
+            }
         </td>
     </tr>
 }
